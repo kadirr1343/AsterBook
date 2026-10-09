@@ -1,4 +1,4 @@
-# v1 contract
+# Matching semantics (v1)
 Single writer, one symbol per Book. Positive integer ticks and quantities; no implied decimal scale. Limit Buy/Sell, GTC/IOC only. Better price then engine acceptance FIFO. Execution at maker price; minimum remaining quantity. IOC remainder emits Expired; cancellation emits Cancelled, never a fill. Accepted records original quantity; Rested records active remainder; Trade records both acceptance generations. Fully filled takers have no Rested/Expired event.
 
 IDs are unique only while active within a symbol. Reuse after completion is permitted. Acceptance and trade counters are per-symbol, starting at 1. External CSV sequence is separate, strictly increasing, starting at any positive value. Rejections change neither counter nor book.

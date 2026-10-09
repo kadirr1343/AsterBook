@@ -2,9 +2,9 @@
 
 [![CI](https://github.com/kadirr1343/AsterBook/actions/workflows/ci.yml/badge.svg)](https://github.com/kadirr1343/AsterBook/actions/workflows/ci.yml)
 
-A C++23 order-matching laboratory with deterministic replay, independent reference-model validation, and reproducible performance experiments. Learn container ownership, iterator validity, price-time priority and honest measurement through a runnable CLI.
+A C++23 limit-order matching engine with deterministic replay, independent reference-model validation, and reproducible performance benchmarks. Includes a command-line interface for replay, verification and workload generation.
 
-The vector reference and map/list/hash price-level engine independently implement the same contract. Golden cases plus per-command differential tests compare actual events, state, depth and conservation; Release checks remain active. Real corpora, measurements and metadata live in [benchmarks/results](benchmarks/results/). This is a single-writer synthetic matching lab, with no real brokerage connection.
+The vector reference and map/list/hash price-level engine independently implement the same matching semantics. Golden cases plus per-command differential tests compare actual events, state, depth and conservation; Release checks remain active. Real corpora, measurements and metadata live in [benchmarks/results](benchmarks/results/). This is a single-writer engine for synthetic order streams, with no real brokerage connection.
 
 ## Engineering highlights
 
@@ -83,14 +83,17 @@ cmake --build --preset sanitize
 ctest --preset sanitize
 ./build/release/asterbook_tests --extended
 ```
-Local ASan+UBSan passes with `ASAN_OPTIONS=detect_leaks=0 UBSAN_OPTIONS=halt_on_error=1 ctest --preset sanitize`. Full local LeakSanitizer failed because the execution environment uses ptrace; leak detection is **not verified locally**. CI keeps leak detection enabled. Debug/Release and sanitizer checks, CLI error paths and allocation-failure injection are recorded in [progress](docs/progress.md). Extended testing is 100 seeds × 10,000 commands; on failure, seed/index and replayable prefix are emitted.
+GitHub Actions validates Debug and Release builds, formatting, CLI/benchmark smoke checks, and ASan/UBSan with leak detection enabled. See [validation evidence](docs/ci-validation.md) and the live CI badge. Extended testing covers 100 seeds × 10,000 commands; failures emit the seed, command index and a replayable prefix. In ptrace-based local environments, LeakSanitizer may require a separate unrestricted run.
 
 Snapshot, depth, top and count queries copy/scan O(N); cancellation does not. Near arithmetic limits admission is conservative. An exception during apply poisons the engine, with no strong rollback; reuse is refused. No fuzzing, profiling or multi-compiler verification is claimed. The first hosted CI run passed Debug, Release, formatting, CLI/benchmark smoke and ASan/UBSan with leak detection enabled: [verified run](https://github.com/kadirr1343/AsterBook/actions/runs/37989181624). CI targets Ubuntu 24.04/GCC 13; see the live Actions status for hosted execution results.
 
-## Explore and publish
-[Contract](docs/semantics.md) · [Architecture/costs](docs/architecture.md) · [Benchmark method](docs/benchmarking.md) · [Turkish learning guide](docs/learning-tr.md) · [Interview notes](docs/interview-notes-tr.md) · [Portfolio](docs/portfolio.md) · [Release checklist](docs/release-checklist.md) · [Türkçe README](README.tr.md).
+## Documentation
 
-MIT; holder taken from local Git identity. Repository: https://github.com/kadirr1343/AsterBook. The CI badge reflects the actual workflow status; historical local measurements remain available with provenance. See the publication checklist before tagging a release.
+[Matching semantics](docs/semantics.md) · [Architecture and complexity](docs/architecture.md) · [CSV format](docs/csv.md) · [Benchmark methodology](docs/benchmarking.md) · [CI validation](docs/ci-validation.md) · [Contributing](CONTRIBUTING.md).
+
+## License
+
+Released under the [MIT License](LICENSE).
 
 ## Measured example
 
