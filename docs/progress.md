@@ -45,3 +45,9 @@ Remaining publication work: choose actual GitHub repository/remote, review licen
 Owner authorized publication on 2026-10-09; local Git initialized on main with real configured author name and account noreply email. README engineering overview, EditorConfig and GitHub generated-file attributes added. Authentication is pending; no remote creation, push, release or hosted CI run yet. See github-publication.md.
 
 GitHub account kadirr1343 authenticated; public https://github.com/kadirr1343/AsterBook created. Source upload and hosted CI are in progress. Historical local statements above refer to their recorded development stage.
+
+## Verified hosted publication
+
+Public repo: https://github.com/kadirr1343/AsterBook. Initial source upload 4199552bbda4913e65d11733fcd727d74b6ae9e4; 92 files. About description/topics configured. Hosted run [37989181624](https://github.com/kadirr1343/AsterBook/actions/runs/37989181624) passed Debug, Release, format, CLI/benchmark smoke and sanitizer (ASAN_OPTIONS=detect_leaks=1, UBSAN_OPTIONS=halt_on_error=1). This resolves the local leak-validation gap for the tested code on the GitHub runner; local ptrace limitation still applies. Local pre-publication history is preserved in local-prepublication; main tracks origin/main. No release/tag created.
+
+Public GitHub clean-clone validation: Release configure/build succeeded, CTest passed 6/6, and `verify --input examples/sweep.csv` verified 8 commands.

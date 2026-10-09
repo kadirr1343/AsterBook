@@ -4,10 +4,10 @@
 - [x] ASan/UBSan local run with detect_leaks=0; ptrace blocks local LeakSanitizer. Run full sanitizer including leak detection on an unrestricted machine/CI.
 - [x] MIT holder from actual `git config user.name`: abdulkadir tas. Confirm desired spelling/legal attribution before publication.
 - [x] Deterministic examples and real measured corpora/reports. No external runtime dependency or vendored content.
-- [ ] Create/select your GitHub repository and set a real remote. A local main repository is now prepared; remote creation and push await GitHub authentication. No hosted release exists.
-- [ ] First GitHub Actions run: workflow is prepared, not yet run on GitHub. Require all jobs including leak detection before tagging.
-- [ ] After initial commit, clean clone and run README commands again; local clean-copy validation is recorded in progress.md.
-- [ ] Review `git diff --cached`, ignored build/out files, personal paths, secrets, licenses and repository links. Add badge only with a real URL.
+- [x] Public https://github.com/kadirr1343/AsterBook created; source uploaded and origin/main configured. No hosted release exists.
+- [x] First GitHub Actions run passed all jobs including leak detection: https://github.com/kadirr1343/AsterBook/actions/runs/37989181624.
+- [x] Public GitHub clean clone: Release configure/build, 6/6 CTest and sweep verification (8 commands) passed.
+- [x] Publication source review, build/cache exclusion and real CI badge completed.
 - [ ] Make real commits with current authorship/date. Tag v0.1.0 only after review, push/tag/release only with explicit authorization.
 
 Example commands for the owner: `git init -b main`, `git add .`, `git diff --cached`, `git commit -m "Implement AsterBook v0.1.0"`. Set remote to your actual repository, not an invented address. Source SHA-256 in measurements covers implementation/build/tests/tools; no fabricated commit hash.

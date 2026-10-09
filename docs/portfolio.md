@@ -8,7 +8,7 @@ Verifiable CV bullets:
 - Built strict replay/generator CLI and fresh-state throughput/latency benchmarks with raw corpora, SHA-256 metadata and dependency-free HTML reporting.
 - Exercised allocation failures and fail-stop semantics; Debug/Release and ASan/UBSan passed locally with local leak checking unavailable under ptrace.
 
-No universal speedup, production readiness, real exchange or GitHub CI success claim. See benchmarking.md for actual measurements and active-state sizes.
+No universal speedup, production readiness or real exchange claim. Hosted Debug, Release and full sanitizer CI passed: [verified run](https://github.com/kadirr1343/AsterBook/actions/runs/37989181624). See benchmarking.md for actual measurements and active-state sizes.
 
 ## Two-minute demo (Türkçe)
 0:00–0:20: README ve iki veri yapısını aç; amacın gerçek borsa bağlantısı değil deterministik bir C++ laboratuvarı olduğunu anlat.

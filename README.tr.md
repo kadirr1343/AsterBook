@@ -33,7 +33,7 @@ python3 tools/report.py --bench out/bench.csv --output out/report.html
 | Throughput ve ayrı latency ölçümü | Gerçek CSV + metadata + HTML |
 | Debug/Release, ASan/UBSan | Yerelde çalıştırıldı |
 | LeakSanitizer | ptrace engeli nedeniyle yerelde doğrulanamadı |
-| GitHub CI | Dosyaları hazır; GitHub'da henüz çalışmadı |
+| GitHub CI | Debug, Release, format, smoke ve tam sanitizer başarılı |
 
 Referans model eklemelerde bütün vector'ı sıralar; fiyat seviyeli motor düğüm tahsisi yapar. İkinci motor her senaryoda hızlı değildir. Ölçümleri [benchmark belgesinden](docs/benchmarking.md) ham CSV'ye kadar takip edebilirsin. Küçük aktif defterli akışlar büyük defter benchmark'ı gibi sunulmaz.
 
@@ -55,3 +55,5 @@ Tam kayıtlı deneyler: `python3 tools/experiments.py --output out/experiments`.
 | sweep-heavy | 15,256,300 | 11,145,800 | [CSV](benchmarks/results/sweep-heavy-6000-128.csv) |
 
 Kayıtlı makinede beş tekrarın medyanı; taşınabilir hız garantisi değildir. Mixed/cancel/sweep küçük aktif defterler tutar. [Yöntem, metadata ve tekrar komutları](docs/benchmarking.md).
+
+İlk GitHub CI: [doğrulanmış başarılı çalışma](https://github.com/kadirr1343/AsterBook/actions/runs/37989181624). LeakSanitizer yerelde ptrace nedeniyle çalışmadı; GitHub sanitizer işinde detect_leaks=1 ile geçti.
