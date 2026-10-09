@@ -1,0 +1,10 @@
+# v1 contract
+Single writer, one symbol per Book. Positive integer ticks and quantities; no implied decimal scale. Limit Buy/Sell, GTC/IOC only. Better price then engine acceptance FIFO. Execution at maker price; minimum remaining quantity. IOC remainder emits Expired; cancellation emits Cancelled, never a fill. Accepted records original quantity; Rested records active remainder; Trade records both acceptance generations. Fully filled takers have no Rested/Expired event.
+
+IDs are unique only while active within a symbol. Reuse after completion is permitted. Acceptance and trade counters are per-symbol, starting at 1. External CSV sequence is separate, strictly increasing, starting at any positive value. Rejections change neither counter nor book.
+
+Validation precedes matching. Capacity admission is deliberately conservative: active quantity + submitted quantity must fit configured unsigned limit, acceptance counter must have room, and trade counter must have room for every current active order (even non-crossing ones). This can reject an otherwise executable order near limits. Default limits are uint64 max. Individual id 0 and symbol 0 are valid.
+
+All mutating calls catch exceptions, mark the book poisoned and rethrow. No strong rollback or allocation recovery is claimed. A poisoned book refuses apply/snapshot/invariant; only destruction and diagnostic counters are safe. Read-only snapshot allocation failure does not poison because state is unchanged. Business rejections are typed events, operational failures are exceptions. No noexcept claim for engine calls. No thread safety, crash-safe WAL, disk durability or transaction guarantee.
+
+Snapshot owns copies, buys descending then sells ascending and FIFO within price. Level totals equal remaining quantities, active IDs match locator entries, and bid < ask at every successful command boundary. Initial quantity remains attached to active orders; accepted/trade/cancel/expiry events form the historical ledger.

@@ -1,0 +1,32 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>AsterBook measurements</title><style>body{font:16px system-ui;margin:2rem;color:#172033}table{border-collapse:collapse;font-size:13px}td,th{border:1px solid #ccc;padding:6px}pre{white-space:pre-wrap}svg{max-width:100%}</style><h1>AsterBook measured engine calls</h1><p>Throughput: median of repetitions, ops/s. Latency: nanoseconds, separate pass, nearest-rank quantiles per repetition. Small samples and OS jitter limit tail interpretation. One fresh-state warmup, five measured repetitions; event allocation and result retention included; parsing and output excluded. No CPU pinning or profiling claim.</p><svg role="img" aria-label="Median throughput in operations per second" viewBox="0 0 760 100"><text x="0" y="25">reference</text><rect x="130" y="10" width="400.0" height="20" fill="#2563eb"/><text x="540" y="25">18,285,500 ops/s</text><text x="0" y="70">price-level</text><rect x="130" y="55" width="259.2" height="20" fill="#2563eb"/><text x="540" y="70">11,850,400 ops/s</text></svg><h2>Raw repetitions</h2><table><thead><tr><th>engine</th><th>repeat</th><th>commands</th><th>throughput_ops_s</th><th>p50_ns</th><th>p95_ns</th><th>p99_ns</th><th>max_ns</th><th>timer_ns</th><th>accepted</th><th>rejected</th><th>cancelled</th><th>trades</th><th>expired</th><th>active</th><th>levels</th><th>checksum</th></tr></thead><tbody><tr><td>reference</td><td>0</td><td>1000</td><td>1.15774e+07</td><td>79</td><td>136</td><td>205</td><td>4453</td><td>19.315</td><td>683</td><td>0</td><td>317</td><td>91</td><td>274</td><td>1</td><td>1</td><td>5529197183240126460</td></tr><tr><td>reference</td><td>1</td><td>1000</td><td>1.22564e+07</td><td>88</td><td>182</td><td>225</td><td>308</td><td>15.279</td><td>683</td><td>0</td><td>317</td><td>91</td><td>274</td><td>1</td><td>1</td><td>5529197183240126460</td></tr><tr><td>reference</td><td>2</td><td>1000</td><td>1.82855e+07</td><td>79</td><td>166</td><td>244</td><td>372</td><td>16.173</td><td>683</td><td>0</td><td>317</td><td>91</td><td>274</td><td>1</td><td>1</td><td>5529197183240126460</td></tr><tr><td>reference</td><td>3</td><td>1000</td><td>1.83231e+07</td><td>77</td><td>126</td><td>170</td><td>230</td><td>16.152</td><td>683</td><td>0</td><td>317</td><td>91</td><td>274</td><td>1</td><td>1</td><td>5529197183240126460</td></tr><tr><td>reference</td><td>4</td><td>1000</td><td>1.84618e+07</td><td>75</td><td>128</td><td>183</td><td>17854</td><td>15.38</td><td>683</td><td>0</td><td>317</td><td>91</td><td>274</td><td>1</td><td>1</td><td>5529197183240126460</td></tr><tr><td>price-level</td><td>0</td><td>1000</td><td>1.15264e+07</td><td>99</td><td>169</td><td>236</td><td>23771</td><td>16.163</td><td>683</td><td>0</td><td>317</td><td>91</td><td>274</td><td>1</td><td>1</td><td>5529197183240126460</td></tr><tr><td>price-level</td><td>1</td><td>1000</td><td>9.33585e+06</td><td>100</td><td>167</td><td>238</td><td>4987</td><td>14.921</td><td>683</td><td>0</td><td>317</td><td>91</td><td>274</td><td>1</td><td>1</td><td>5529197183240126460</td></tr><tr><td>price-level</td><td>2</td><td>1000</td><td>1.19103e+07</td><td>95</td><td>161</td><td>203</td><td>435</td><td>14.915</td><td>683</td><td>0</td><td>317</td><td>91</td><td>274</td><td>1</td><td>1</td><td>5529197183240126460</td></tr><tr><td>price-level</td><td>3</td><td>1000</td><td>1.19516e+07</td><td>94</td><td>163</td><td>231</td><td>503</td><td>14.916</td><td>683</td><td>0</td><td>317</td><td>91</td><td>274</td><td>1</td><td>1</td><td>5529197183240126460</td></tr><tr><td>price-level</td><td>4</td><td>1000</td><td>1.18504e+07</td><td>98</td><td>173</td><td>243</td><td>23603</td><td>34.325</td><td>683</td><td>0</td><td>317</td><td>91</td><td>274</td><td>1</td><td>1</td><td>5529197183240126460</td></tr></tbody></table><h2>Platform and corpus metadata</h2><pre>{
+  &quot;date&quot;: &quot;2026-10-09T19:35:40.382720+03:00&quot;,
+  &quot;cpu&quot;: &quot;Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz&quot;,
+  &quot;os&quot;: &quot;Linux-6.8.0-59-generic-x86_64-with-glibc2.39&quot;,
+  &quot;compiler_probe&quot;: &quot;c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0&quot;,
+  &quot;stdlib&quot;: &quot;#define __GLIBCXX__ 20240904; #define _GLIBCXX_RELEASE 13&quot;,
+  &quot;flags&quot;: [
+    &quot;FLAGS = -O3 -DNDEBUG&quot;,
+    &quot;FLAGS = -O3 -DNDEBUG -std=c++23 -Wall -Wextra -Wpedantic -Wconversion -Wshadow&quot;
+  ],
+  &quot;seed&quot;: 42,
+  &quot;scenario&quot;: &quot;cancel-heavy&quot;,
+  &quot;commands&quot;: 1000,
+  &quot;requested_levels_per_side&quot;: 8,
+  &quot;peak_active_orders&quot;: 4,
+  &quot;peak_price_levels&quot;: 4,
+  &quot;events_sha256&quot;: &quot;7de9c60a60846f89b12cb6b7c95e0899da307028a38e2ef28a9357be390053be&quot;,
+  &quot;snapshot_sha256&quot;: &quot;3aebde77f7b6b9bb62cf82405e28eaebe818c79c11a0e33e33d869d2c1fdc4bc&quot;,
+  &quot;corpus_sha256&quot;: &quot;88dc01518037d3eb1a564536df8b433a6f8fa19f26c51843a8efb439e64a6d22&quot;,
+  &quot;binary_sha256&quot;: &quot;98e38ded01efc3031a3c9f419688708ef6f53bcd49549293113992af4fe3377a&quot;,
+  &quot;source_sha256&quot;: &quot;ca75618123940d382ac8c4f35245fb21e84882ae46767f6b452ccb7b11b1e23f&quot;,
+  &quot;revision&quot;: &quot;no Git commit at measurement&quot;,
+  &quot;warmups&quot;: 1,
+  &quot;repetitions&quot;: 5,
+  &quot;latency_samples_per_repeat&quot;: 1000,
+  &quot;clock&quot;: &quot;steady_clock&quot;,
+  &quot;quantile&quot;: &quot;nearest rank ceil(q*N)-1&quot;,
+  &quot;pinning&quot;: false,
+  &quot;profiling&quot;: false,
+  &quot;observation&quot;: &quot;results retained during timing, checksums and snapshots consumed afterwards; latency results consumed afterwards&quot;,
+  &quot;limits&quot;: &quot;single host, no timer subtraction, clock pair baseline in timer_ns, cache and OS jitter uncontrolled&quot;
+}</pre></html>

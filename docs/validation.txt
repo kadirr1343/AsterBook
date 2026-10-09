@@ -1,0 +1,368 @@
+Clean source-only copy validation, 2026-10-09 Europe/Istanbul.
+All three presets configured and compiled from empty build directories.
+ASan+UBSan used detect_leaks=0; LeakSanitizer is unverified under ptrace.
+
+=== debug CTest LastTest.log ===
+Start testing: Oct 09 19:37 +03
+----------------------------------------------------------
+1/6 Testing: correctness
+1/6 Test: correctness
+Command: "<clean-project>/build/debug/asterbook_tests"
+Directory: <clean-project>/build/debug
+"correctness" start time: Oct 09 19:37 +03
+Output:
+----------------------------------------------------------
+72068 active checks passed
+<end of output>
+Test time =   0.40 sec
+----------------------------------------------------------
+Test Passed.
+"correctness" end time: Oct 09 19:37 +03
+"correctness" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/6 Testing: demo
+2/6 Test: demo
+Command: "<clean-project>/build/debug/asterbook" "demo"
+Directory: <clean-project>/build/debug
+"demo" start time: Oct 09 19:37 +03
+Output:
+----------------------------------------------------------
+FIFO: maker 1 then 2 at 100; sweep to 101; partial maker 3.
+Duplicate rejected before matching; cancel remaining 2; IOC expires 3; ID 1 reused.
+kind,symbol,id,maker,acceptance,maker_acceptance,trade,price_ticks,quantity,error
+0,1,1,0,1,0,0,100,5,0
+2,1,1,0,1,0,0,100,5,0
+0,1,2,0,2,0,0,100,7,0
+2,1,2,0,2,0,0,100,7,0
+0,1,3,0,3,0,0,101,4,0
+2,1,3,0,3,0,0,101,4,0
+5,1,1,0,0,0,0,0,0,3
+0,1,4,0,4,0,0,101,14,0
+1,1,4,1,4,1,1,100,5,0
+1,1,4,2,4,2,2,100,7,0
+1,1,4,3,4,3,3,101,2,0
+3,1,3,0,3,0,0,101,2,0
+0,1,5,0,5,0,0,99,3,0
+4,1,5,0,5,0,0,99,3,0
+0,1,1,0,6,0,0,98,2,0
+2,1,1,0,6,0,0,98,2,0
+symbol,side,price_ticks,id,initial,remaining,acceptance
+1,BUY,98,1,2,2,6
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"demo" end time: Oct 09 19:37 +03
+"demo" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/6 Testing: replay_verify
+3/6 Test: replay_verify
+Command: "<clean-project>/build/debug/asterbook" "verify" "--input" "<clean-project>/examples/sweep.csv"
+Directory: <clean-project>/build/debug
+"replay_verify" start time: Oct 09 19:37 +03
+Output:
+----------------------------------------------------------
+verified 8 commands
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"replay_verify" end time: Oct 09 19:37 +03
+"replay_verify" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/6 Testing: allocation_fail_stop
+4/6 Test: allocation_fail_stop
+Command: "<clean-project>/build/debug/allocation_tests"
+Directory: <clean-project>/build/debug
+"allocation_fail_stop" start time: Oct 09 19:37 +03
+Output:
+----------------------------------------------------------
+9 injected failures refused reuse
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"allocation_fail_stop" end time: Oct 09 19:37 +03
+"allocation_fail_stop" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/6 Testing: cli_integration
+5/6 Test: cli_integration
+Command: "/usr/bin/python3" "<clean-project>/tests/cli.py" "<clean-project>/build/debug/asterbook" "<clean-project>/examples/sweep.csv"
+Directory: <clean-project>/build/debug
+"cli_integration" start time: Oct 09 19:37 +03
+Output:
+----------------------------------------------------------
+CLI replay, demo golden, generator, benchmark and error paths passed
+<end of output>
+Test time =   0.06 sec
+----------------------------------------------------------
+Test Passed.
+"cli_integration" end time: Oct 09 19:37 +03
+"cli_integration" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/6 Testing: report_validation
+6/6 Test: report_validation
+Command: "/usr/bin/python3" "<clean-project>/tests/report.py" "<clean-project>/tools/report.py"
+Directory: <clean-project>/build/debug
+"report_validation" start time: Oct 09 19:37 +03
+Output:
+----------------------------------------------------------
+Report rejects empty data and escapes untrusted text
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"report_validation" end time: Oct 09 19:37 +03
+"report_validation" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 09 19:37 +03
+
+=== release CTest LastTest.log ===
+Start testing: Oct 09 19:37 +03
+----------------------------------------------------------
+1/6 Testing: correctness
+1/6 Test: correctness
+Command: "<clean-project>/build/release/asterbook_tests"
+Directory: <clean-project>/build/release
+"correctness" start time: Oct 09 19:37 +03
+Output:
+----------------------------------------------------------
+72068 active checks passed
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"correctness" end time: Oct 09 19:37 +03
+"correctness" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/6 Testing: demo
+2/6 Test: demo
+Command: "<clean-project>/build/release/asterbook" "demo"
+Directory: <clean-project>/build/release
+"demo" start time: Oct 09 19:37 +03
+Output:
+----------------------------------------------------------
+FIFO: maker 1 then 2 at 100; sweep to 101; partial maker 3.
+Duplicate rejected before matching; cancel remaining 2; IOC expires 3; ID 1 reused.
+kind,symbol,id,maker,acceptance,maker_acceptance,trade,price_ticks,quantity,error
+0,1,1,0,1,0,0,100,5,0
+2,1,1,0,1,0,0,100,5,0
+0,1,2,0,2,0,0,100,7,0
+2,1,2,0,2,0,0,100,7,0
+0,1,3,0,3,0,0,101,4,0
+2,1,3,0,3,0,0,101,4,0
+5,1,1,0,0,0,0,0,0,3
+0,1,4,0,4,0,0,101,14,0
+1,1,4,1,4,1,1,100,5,0
+1,1,4,2,4,2,2,100,7,0
+1,1,4,3,4,3,3,101,2,0
+3,1,3,0,3,0,0,101,2,0
+0,1,5,0,5,0,0,99,3,0
+4,1,5,0,5,0,0,99,3,0
+0,1,1,0,6,0,0,98,2,0
+2,1,1,0,6,0,0,98,2,0
+symbol,side,price_ticks,id,initial,remaining,acceptance
+1,BUY,98,1,2,2,6
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"demo" end time: Oct 09 19:37 +03
+"demo" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/6 Testing: replay_verify
+3/6 Test: replay_verify
+Command: "<clean-project>/build/release/asterbook" "verify" "--input" "<clean-project>/examples/sweep.csv"
+Directory: <clean-project>/build/release
+"replay_verify" start time: Oct 09 19:37 +03
+Output:
+----------------------------------------------------------
+verified 8 commands
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"replay_verify" end time: Oct 09 19:37 +03
+"replay_verify" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/6 Testing: allocation_fail_stop
+4/6 Test: allocation_fail_stop
+Command: "<clean-project>/build/release/allocation_tests"
+Directory: <clean-project>/build/release
+"allocation_fail_stop" start time: Oct 09 19:37 +03
+Output:
+----------------------------------------------------------
+9 injected failures refused reuse
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"allocation_fail_stop" end time: Oct 09 19:37 +03
+"allocation_fail_stop" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/6 Testing: cli_integration
+5/6 Test: cli_integration
+Command: "/usr/bin/python3" "<clean-project>/tests/cli.py" "<clean-project>/build/release/asterbook" "<clean-project>/examples/sweep.csv"
+Directory: <clean-project>/build/release
+"cli_integration" start time: Oct 09 19:37 +03
+Output:
+----------------------------------------------------------
+CLI replay, demo golden, generator, benchmark and error paths passed
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Passed.
+"cli_integration" end time: Oct 09 19:37 +03
+"cli_integration" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/6 Testing: report_validation
+6/6 Test: report_validation
+Command: "/usr/bin/python3" "<clean-project>/tests/report.py" "<clean-project>/tools/report.py"
+Directory: <clean-project>/build/release
+"report_validation" start time: Oct 09 19:37 +03
+Output:
+----------------------------------------------------------
+Report rejects empty data and escapes untrusted text
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"report_validation" end time: Oct 09 19:37 +03
+"report_validation" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 09 19:37 +03
+
+=== sanitize CTest LastTest.log ===
+Start testing: Oct 09 19:37 +03
+----------------------------------------------------------
+1/6 Testing: correctness
+1/6 Test: correctness
+Command: "<clean-project>/build/sanitize/asterbook_tests"
+Directory: <clean-project>/build/sanitize
+"correctness" start time: Oct 09 19:37 +03
+Output:
+----------------------------------------------------------
+72068 active checks passed
+<end of output>
+Test time =   2.02 sec
+----------------------------------------------------------
+Test Passed.
+"correctness" end time: Oct 09 19:37 +03
+"correctness" time elapsed: 00:00:02
+----------------------------------------------------------
+
+2/6 Testing: demo
+2/6 Test: demo
+Command: "<clean-project>/build/sanitize/asterbook" "demo"
+Directory: <clean-project>/build/sanitize
+"demo" start time: Oct 09 19:37 +03
+Output:
+----------------------------------------------------------
+FIFO: maker 1 then 2 at 100; sweep to 101; partial maker 3.
+Duplicate rejected before matching; cancel remaining 2; IOC expires 3; ID 1 reused.
+kind,symbol,id,maker,acceptance,maker_acceptance,trade,price_ticks,quantity,error
+0,1,1,0,1,0,0,100,5,0
+2,1,1,0,1,0,0,100,5,0
+0,1,2,0,2,0,0,100,7,0
+2,1,2,0,2,0,0,100,7,0
+0,1,3,0,3,0,0,101,4,0
+2,1,3,0,3,0,0,101,4,0
+5,1,1,0,0,0,0,0,0,3
+0,1,4,0,4,0,0,101,14,0
+1,1,4,1,4,1,1,100,5,0
+1,1,4,2,4,2,2,100,7,0
+1,1,4,3,4,3,3,101,2,0
+3,1,3,0,3,0,0,101,2,0
+0,1,5,0,5,0,0,99,3,0
+4,1,5,0,5,0,0,99,3,0
+0,1,1,0,6,0,0,98,2,0
+2,1,1,0,6,0,0,98,2,0
+symbol,side,price_ticks,id,initial,remaining,acceptance
+1,BUY,98,1,2,2,6
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"demo" end time: Oct 09 19:37 +03
+"demo" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/6 Testing: replay_verify
+3/6 Test: replay_verify
+Command: "<clean-project>/build/sanitize/asterbook" "verify" "--input" "<clean-project>/examples/sweep.csv"
+Directory: <clean-project>/build/sanitize
+"replay_verify" start time: Oct 09 19:37 +03
+Output:
+----------------------------------------------------------
+verified 8 commands
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"replay_verify" end time: Oct 09 19:37 +03
+"replay_verify" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/6 Testing: allocation_fail_stop
+4/6 Test: allocation_fail_stop
+Command: "<clean-project>/build/sanitize/allocation_tests"
+Directory: <clean-project>/build/sanitize
+"allocation_fail_stop" start time: Oct 09 19:37 +03
+Output:
+----------------------------------------------------------
+9 injected failures refused reuse
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"allocation_fail_stop" end time: Oct 09 19:37 +03
+"allocation_fail_stop" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/6 Testing: cli_integration
+5/6 Test: cli_integration
+Command: "/usr/bin/python3" "<clean-project>/tests/cli.py" "<clean-project>/build/sanitize/asterbook" "<clean-project>/examples/sweep.csv"
+Directory: <clean-project>/build/sanitize
+"cli_integration" start time: Oct 09 19:37 +03
+Output:
+----------------------------------------------------------
+CLI replay, demo golden, generator, benchmark and error paths passed
+<end of output>
+Test time =   0.19 sec
+----------------------------------------------------------
+Test Passed.
+"cli_integration" end time: Oct 09 19:37 +03
+"cli_integration" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/6 Testing: report_validation
+6/6 Test: report_validation
+Command: "/usr/bin/python3" "<clean-project>/tests/report.py" "<clean-project>/tools/report.py"
+Directory: <clean-project>/build/sanitize
+"report_validation" start time: Oct 09 19:37 +03
+Output:
+----------------------------------------------------------
+Report rejects empty data and escapes untrusted text
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"report_validation" end time: Oct 09 19:37 +03
+"report_validation" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 09 19:37 +03
+
+The clean-copy runner also completed README demo/replay/verify/generate(10000)/bench/report, extended(6000068 checks), allocation(9 failures), and repeated replay byte comparison with zero exit codes.

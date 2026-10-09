@@ -1,0 +1,5 @@
+* text=auto eol=lf
+benchmarks/results/*.csv linguist-generated=true
+benchmarks/results/*.html linguist-generated=true
+benchmarks/results/*.meta.json linguist-generated=true
+docs/validation.txt linguist-generated=true

@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-09T19:35:40.804834+03:00",
+  "cpu": "Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz",
+  "os": "Linux-6.8.0-59-generic-x86_64-with-glibc2.39",
+  "compiler_probe": "c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "stdlib": "#define __GLIBCXX__ 20240904; #define _GLIBCXX_RELEASE 13",
+  "flags": [
+    "FLAGS = -O3 -DNDEBUG",
+    "FLAGS = -O3 -DNDEBUG -std=c++23 -Wall -Wextra -Wpedantic -Wconversion -Wshadow"
+  ],
+  "seed": 42,
+  "scenario": "sweep-heavy",
+  "commands": 6000,
+  "requested_levels_per_side": 128,
+  "peak_active_orders": 8,
+  "peak_price_levels": 8,
+  "events_sha256": "812de909fbfc32ca8daafb5e038a77e80fda2e79682ef7eb4276c9a8e44d0be2",
+  "snapshot_sha256": "1f1399699f00689eb2d05805681f792a97828880cb04ce50db0fdb755f8598e1",
+  "corpus_sha256": "074e4c5fe17b90acbf171be074272125d8213d9d80bd23b9a4d0820807378855",
+  "binary_sha256": "98e38ded01efc3031a3c9f419688708ef6f53bcd49549293113992af4fe3377a",
+  "source_sha256": "ca75618123940d382ac8c4f35245fb21e84882ae46767f6b452ccb7b11b1e23f",
+  "revision": "no Git commit at measurement",
+  "warmups": 1,
+  "repetitions": 5,
+  "latency_samples_per_repeat": 6000,
+  "clock": "steady_clock",
+  "quantile": "nearest rank ceil(q*N)-1",
+  "pinning": false,
+  "profiling": false,
+  "observation": "results retained during timing, checksums and snapshots consumed afterwards; latency results consumed afterwards",
+  "limits": "single host, no timer subtraction, clock pair baseline in timer_ns, cache and OS jitter uncontrolled"
+}
